@@ -14,7 +14,7 @@ public class QuestHandler : MonoBehaviour
         
     }
 
-    public void OnFishCatch()
+    public void OnFishCapture()
     {
         
     }
