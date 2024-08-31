@@ -82,7 +82,7 @@ public class VesselController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            sideSpeed = originalSpeed;
+            sideSpeed = originalSideSpeed;
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
