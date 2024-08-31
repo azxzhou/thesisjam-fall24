@@ -13,7 +13,7 @@ public class VesselController : MonoBehaviour
 
     [Header("Meter Parameters")] public float oxygenConsumeSpeed;
     public float powerConsumeSpeed;
-    public float hullDamageAmount;
+    public float pressureGainSpeed;
 
     [Header("DeptCalculation")]
     public float depthFloat;
@@ -23,7 +23,7 @@ public class VesselController : MonoBehaviour
     [Header("UiReferences")]
     public SlicedFilledImage oxygenMeter;
     public SlicedFilledImage powerMeter;
-    public SlicedFilledImage damageMeter;
+    public SlicedFilledImage pressureMeter;
     public TextMeshProUGUI depthLabel;
     
     void Start()
@@ -44,7 +44,7 @@ public class VesselController : MonoBehaviour
         if (startedLevel)
         {
             Movement();
-            ConsumeOxygen();
+            ConsumeMeters();
             CalculateDepth();
         }
     }
@@ -55,9 +55,12 @@ public class VesselController : MonoBehaviour
         depthLabel.text = "Depth: "+ ((int)distanceTravelled).ToString() + " M";
     }
 
-    private void ConsumeOxygen()
+    private void ConsumeMeters()
     {
         oxygenMeter.fillAmount -= oxygenConsumeSpeed*Time.deltaTime;
+        powerMeter.fillAmount -= powerConsumeSpeed*Time.deltaTime;
+        pressureMeter.fillAmount += pressureGainSpeed * Time.deltaTime;
+
     }
 
     private void Movement()
