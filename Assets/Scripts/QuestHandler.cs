@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class QuestHandler : MonoBehaviour
 {
-    public int DepthGoal; // Required quest to reach certain depth
-    public int ZoneDepth; //Required quest to reach a particular zone
-    public int uniqueFishSeen; //Required quest to see X no of unique fish
-    
 
-    public void OnDepthReach()
+    public Animator strike1, strike2, strike3;
+
+    public void OnDepthReach(int depth)
     {
-        
+        if(depth == 200)
+        strike1.Play("Strike");
+        else if(depth == 300)
+        strike3.Play("Strike");
     }
 
     public void OnFishCapture()
     {
-        
+        strike2.Play("Strike");
     }
 }
