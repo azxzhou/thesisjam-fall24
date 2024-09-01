@@ -52,6 +52,15 @@ public class VesselController : MonoBehaviour
             Movement();
             ConsumeMeters();
             CalculateDepth();
+            CheckDeath();
+        }
+    }
+
+    private void CheckDeath()
+    {
+        if (maxO2 == 0 || maxPow == 0 || maxPSI == 0)
+        {
+            Initiate.Fade("Game Over Scene",Color.black, 4.0f);
         }
     }
 
@@ -59,6 +68,10 @@ public class VesselController : MonoBehaviour
     {
         float distanceTravelled = -(transform.position.y - originalY)/depthFloat;
         depthLabel.text = ((int)distanceTravelled).ToString() + " M";
+        if (distanceTravelled > 300)
+        {
+            Initiate.Fade("Level Complete Scene",Color.black, 4.0f);
+        }
   
     }
 

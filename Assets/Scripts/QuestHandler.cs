@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class QuestHandler : MonoBehaviour
 {
 
     public Animator strike1, strike2, strike3;
-
+    private int count;
     public void OnDepthReach(int depth)
     {
         if(depth == 200)
@@ -18,5 +19,13 @@ public class QuestHandler : MonoBehaviour
     public void OnFishCapture()
     {
         strike2.Play("Strike");
+    }
+    private void Update()
+    {
+        if (count == 3)
+        {
+            count = 4;
+            Initiate.Fade("Level Complete Scene",Color.black, 4.0f);
+        }
     }
 }
