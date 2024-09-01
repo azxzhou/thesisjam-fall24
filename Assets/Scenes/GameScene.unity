@@ -2235,9 +2235,9 @@ MonoBehaviour:
   sinkSpeed: 0.005
   sideSpeed: 0.03
   thrustSpeed: 0.0175
-  oxygenConsumeSpeed: 1.2
-  powerConsumeSpeed: 0.65
-  pressureGainSpeed: 0.5
+  oxygenConsumeSpeed: 0.7
+  powerConsumeSpeed: 0.97
+  pressureGainSpeed: 0.65
   depthFloat: 0.29
   _questController: {fileID: 1369177396}
   oxygenMeter: {fileID: 309926124}
